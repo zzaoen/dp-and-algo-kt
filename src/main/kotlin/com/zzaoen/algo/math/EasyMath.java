@@ -1,5 +1,7 @@
 package com.zzaoen.algo.math;
 
+import java.util.HashSet;
+
 /**
  * @author Bruce Zhao
  * @date 2021/4/11 21:02
@@ -8,8 +10,11 @@ public class EasyMath {
   public static void main(String[] args) {
     EasyMath main = new EasyMath();
 
-    boolean ugly = main.isUgly(14);
-    System.out.println(ugly);
+    // boolean ugly = main.isUgly(14);
+    // System.out.println(ugly);
+
+    boolean result = main.isHappy(2);
+    System.out.println(result);
   }
 
   /**
@@ -27,6 +32,26 @@ public class EasyMath {
       while (n % factor != 0) {
         n /= factor;
       }
+    }
+    return n == 1;
+  }
+
+  /**
+   * 202. 快乐数
+   *
+   * @param n
+   * @return
+   */
+  public boolean isHappy(int n) {
+    HashSet<Integer> set = new HashSet<>();
+    while (n != 1) {
+      int sum = 0;
+      while (n != 0) {
+        int remainder = n % 10;
+        n = n / 10;
+        sum +=  remainder * remainder;
+      }
+      n = sum;
     }
     return n == 1;
   }

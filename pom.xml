@@ -9,8 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <kotlin.version>1.4.31</kotlin.version>
-        <kotlinx.version>1.4.3</kotlinx.version>
+        <kotlin.version>1.5.21</kotlin.version>
+        <kotlinx.version>1.5.1</kotlinx.version>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
     </properties>
 
