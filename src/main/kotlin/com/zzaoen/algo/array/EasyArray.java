@@ -340,7 +340,9 @@ public class EasyArray {
 
   /**
    * 344. 反转字符串 https://leetcode-cn.com/problems/reverse-string/
-   *
+   * [a,b,c,d]
+   * tmp = d
+   * a =
    * @param s
    */
   public void reverseString(char[] s) {
@@ -352,6 +354,17 @@ public class EasyArray {
       s[len - i - 1] = tmp;
     }
     // System.out.println(s);
+  }
+
+
+  /**
+   * 541. 反转字符串 II https://leetcode-cn.com/problems/reverse-string-ii/
+   * @param s
+   * @param k
+   * @return
+   */
+  public String reverseStr(String s, int k) {
+    return null;
   }
 
   /**

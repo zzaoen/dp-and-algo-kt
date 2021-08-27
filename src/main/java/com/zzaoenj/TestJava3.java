@@ -1,10 +1,7 @@
-package com.zzaoen.java;
+package com.zzaoenj;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.math.BigInteger;
-import java.util.Collections;
-import java.util.EnumSet;
 
 /**
  * @author: Bruce Zhao

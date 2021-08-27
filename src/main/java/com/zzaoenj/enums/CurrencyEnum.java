@@ -1,7 +1,6 @@
-package com.zzaoen.java.enums;
+package com.zzaoenj.enums;
 
 import java.util.Arrays;
-import java.util.Optional;
 
 /**
  * @author: Bruce Zhao

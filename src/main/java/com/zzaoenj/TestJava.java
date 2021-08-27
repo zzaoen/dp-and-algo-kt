@@ -1,8 +1,5 @@
-package com.zzaoen.java;
+package com.zzaoenj;
 
-import com.zzaoen.java.enums.CurrencyEnum;
-
-import java.nio.file.Files;
 import java.util.*;
 
 /*

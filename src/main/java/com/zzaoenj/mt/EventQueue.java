@@ -1,4 +1,4 @@
-package com.zzaoen.java.mt;
+package com.zzaoenj.mt;
 
 import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;

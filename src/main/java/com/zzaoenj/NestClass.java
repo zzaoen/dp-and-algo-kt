@@ -1,4 +1,4 @@
-package com.zzaoen.java;
+package com.zzaoenj;
 
 /**
  * @author: Bruce Zhao

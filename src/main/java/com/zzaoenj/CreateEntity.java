@@ -1,6 +1,4 @@
-package com.zzaoen.java;
-
-import java.util.EnumSet;
+package com.zzaoenj;
 
 /**
  * @author Bruce Zhao

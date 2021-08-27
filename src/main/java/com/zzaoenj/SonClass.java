@@ -1,4 +1,4 @@
-package com.zzaoen.java;
+package com.zzaoenj;
 
 /**
  * @author: Bruce Zhao
@@ -12,5 +12,10 @@ public class SonClass extends FatherClass {
   public SonClass(String name, String age) {
     this.name = name;
     this.age = age;
+  }
+
+  public static void main(String[] args) {
+    SonClass sc = new SonClass("name", "age");
+    sc.testPrivate();
   }
 }

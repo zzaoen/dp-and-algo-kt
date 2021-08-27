@@ -1,9 +1,8 @@
-package com.zzaoen.java;
+package com.zzaoenj;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
