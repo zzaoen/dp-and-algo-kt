@@ -1,5 +1,10 @@
 package com.zzaoenj;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * @author Bruce Zhao
  * @date 2021/8/19 09:58
@@ -22,5 +27,19 @@ public class Test {
     String str1 = "abc";
     String str3 = new String("abc");
     System.out.println(str3.intern() == str1);
+
+    String str2 = null;
+    System.out.println(str1.equals(str2));
+
+    List<Integer> list = new ArrayList<>(1);
+    list.add(2);
+    list.add(3);
+
+    int i = 1;
+    Long j = 1L;
+    Integer k = null;
+    System.out.println(k != j.intValue());
+
+    System.out.println(list);
   }
 }

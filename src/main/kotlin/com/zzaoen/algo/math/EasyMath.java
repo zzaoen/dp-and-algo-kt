@@ -10,12 +10,39 @@ public class EasyMath {
   public static void main(String[] args) {
     EasyMath main = new EasyMath();
 
+    // 10
+    System.out.println(main.fib(5));
+
+
+
     // boolean ugly = main.isUgly(14);
     // System.out.println(ugly);
 
-    boolean result = main.isHappy(2);
-    System.out.println(result);
+    // boolean result = main.isHappy(2);
+    // System.out.println(result);
   }
+
+  /**
+   * 剑指 Offer 10- I. 斐波那契数列 https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/
+   * 0 1 1 2 3 5
+   * @param n
+   * @return
+   */
+  public int fib(int n) {
+    if (n == 0) {
+      return 0;
+    } else if (n == 1) {
+      return 1;
+    }
+    int a = 0, b = 1, tmp = -1;
+    for (int i = 2; i <= n; i++) {
+      tmp = a;
+      a = b;
+      b = (tmp + b) % 1000000007;
+    }
+    return b;
+  }
+
 
   /**
    * 263. 丑数 https://leetcode-cn.com/problems/ugly-number/
