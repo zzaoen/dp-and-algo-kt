@@ -10,8 +10,8 @@ public class EasyString {
     // int result = main.romanToInt("LVIII");
     // System.out.println(result);
 
-    boolean result = main.isValid("([)]");
-    System.out.println(result);
+    // boolean result = main.isValid("([)]");
+    // System.out.println(result);
 
     // main.isPalindrome(121);
 
@@ -21,6 +21,11 @@ public class EasyString {
     // String result = main.replaceSpaces("               ", 5);
     // System.out.println(result);
 
+
+    // 125
+    // boolean result = main.isPalindrome("A man, a plan, a canal: Panama");
+    boolean result = main.isPalindrome("0P");
+    System.out.println(result);
   }
 
   /**
@@ -134,6 +139,35 @@ public class EasyString {
   }
 
   /* ------------------------------------------------------------------ */
+
+  /**
+   * 125. 验证回文串 https://leetcode-cn.com/problems/valid-palindrome/
+   * @param s "A man, a plan, a canal: Panama"
+   * @return true
+   */
+  public boolean isPalindrome(String s) {
+    if (s.length() == 0) {
+      return true;
+    }
+    char[] chars = s.toLowerCase().toCharArray();
+    int i = 0, j = chars.length-1;
+    // aba
+    // abba
+    while (i < j) {
+      if (!Character.isLetterOrDigit(chars[i])) {
+        i++;
+      } else if (!Character.isLetterOrDigit(chars[j])) {
+        j--;
+      } else { //both are valid
+        if (chars[i] != chars[j]) {
+          return false;
+        }
+        i++;
+        j--;
+      }
+    }
+    return true;
+  }
 
   public boolean isPalindrome(int x) {
     if (x < 0 || (x != 0 && x % 10 == 0)) {

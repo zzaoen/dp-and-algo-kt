@@ -3,6 +3,7 @@ package com.zzaoen.algo.string;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -15,10 +16,10 @@ public class MediumString {
   public static void main(String[] args) {
     MediumString main = new MediumString();
 
-    System.out.println(main.lengthOfLongestSubstring(""));
-    System.out.println(main.lengthOfLongestSubstring("abcabcbb"));
-    System.out.println(main.lengthOfLongestSubstring("bbbbb"));
-    System.out.println(main.lengthOfLongestSubstring("pwwkew"));
+    // System.out.println(main.lengthOfLongestSubstring(""));
+    // System.out.println(main.lengthOfLongestSubstring("abcabcbb"));
+    // System.out.println(main.lengthOfLongestSubstring("bbbbb"));
+    // System.out.println(main.lengthOfLongestSubstring("pwwkew"));
 
     // String str = "abc";
     // System.out.println(str.indexOf('a'));
@@ -31,6 +32,11 @@ public class MediumString {
 
     // String result = main.longestCommonPrefix(new String[] {"flower", "flow", "flight"});
     // System.out.println(result);
+
+    // 1593
+    // int result = main.maxUniqueSplit("wwwzfvedwfvhsww");
+    int result = main.maxUniqueSplit2("wwwzfvedwfvhsww");
+    // int result = main.maxUniqueSplit("aa");
   }
 
   /**
@@ -74,7 +80,9 @@ public class MediumString {
     int left = S.indexOf(c), right = S.lastIndexOf(c);
     int tempLeft = 0, tempRight = 0;
     for (i = 1; i < S.length(); i++) {
-      if (S.charAt(i) == S.charAt(i - 1)) continue;
+      if (S.charAt(i) == S.charAt(i - 1)) {
+        continue;
+      }
 
       c = S.charAt(i);
       tempLeft = i;
@@ -133,5 +141,56 @@ public class MediumString {
       }
     }
     return str1.substring(0, i);
+  }
+
+  /**
+   * 1593. 拆分字符串使唯一子字符串的数目最大
+   * https://leetcode-cn.com/problems/split-a-string-into-the-max-number-of-unique-substrings/
+   *
+   * @param s ababccc
+   * @return ['a', 'b', 'ab', 'c', 'cc']
+   */
+  public int maxUniqueSplit(String s) {
+    Set<String> set = new HashSet<>();
+    StringBuilder sb = new StringBuilder(s);
+
+    while (sb.length() != 0) {
+      for (int i = 1; i <= sb.length(); i++) {
+        String temp = sb.substring(0, i);
+        if (!set.contains(temp)) {
+          set.add(temp);
+          sb.delete(0, i);
+          break;
+        } else {
+          if (i == sb.length()) {
+            sb.delete(0, 1);
+          }
+        }
+      }
+    }
+
+    return set.size();
+  }
+
+  int maxSplit = 1;
+  public int maxUniqueSplit2(String s) {
+    Set<String> set = new HashSet<String>();
+    backtrack(0, 0, s, set);
+    return maxSplit;
+  }
+
+  public void backtrack(int index, int split, String s, Set<String> set) {
+    int length = s.length();
+    if (index >= length) {
+      maxSplit = Math.max(maxSplit, split);
+    } else {
+      for (int i = index; i < length; i++) {
+        String substr = s.substring(index, i + 1);
+        if (set.add(substr)) {
+          backtrack(i + 1, split + 1, s, set);
+          set.remove(substr);
+        }
+      }
+    }
   }
 }
