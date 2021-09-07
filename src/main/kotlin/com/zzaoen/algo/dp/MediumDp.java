@@ -15,6 +15,6 @@ public class MediumDp {
    * @return
    */
   public int twoEggDrop(int n) {
-
+    return -1;
   }
 }

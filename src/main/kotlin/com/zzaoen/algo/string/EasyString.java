@@ -24,8 +24,12 @@ public class EasyString {
 
     // 125
     // boolean result = main.isPalindrome("A man, a plan, a canal: Panama");
-    boolean result = main.isPalindrome("0P");
-    System.out.println(result);
+    // boolean result = main.isPalindrome("0P");
+    // System.out.println(result);
+
+
+    // 1221
+    main.balancedStringSplit("RLLLLRRRLR");
   }
 
   /**
@@ -256,5 +260,33 @@ public class EasyString {
       oddNumber += charCounter[i] & 1;
     }
     return oddNumber <= 1;
+  }
+
+  /**
+   * 1221. 分割平衡字符串 https://leetcode-cn.com/problems/split-a-string-in-balanced-strings/
+   * @param s RLRRLLRLRL
+   * @return "RL"、"RRLL"、"RL"、"RL"
+   */
+  public int balancedStringSplit(String s) {
+    Stack<Character> stack = new Stack<>();
+    char[] chars = s.toCharArray();
+    int count = 0;
+    char head = 0;
+    for (char c : chars) {
+      if (stack.isEmpty()) {
+        head = c;
+        stack.push(c);
+      } else { // stack has element, first one is "head"
+        if (c == head) {
+          stack.push(c);
+        } else {
+          stack.pop();
+          if (stack.isEmpty()) {
+            count++;
+          }
+        }
+      }
+    }
+    return count;
   }
 }
